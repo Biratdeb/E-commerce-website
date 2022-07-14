@@ -91,12 +91,12 @@ a{
     height: 150vh;
 }
 
-.custom-carosel-img{
-    /* align-items: center !important;
+/* .custom-carosel-img{
+    align-items: center !important;
     margin-left: 15vw;
     width: 20rem !important;
-    height: auto; */
-}
+    height: auto;
+} */
 .respon-img-product {
     /* padding-left: 50px !important; */
     max-height: 220px !important;
