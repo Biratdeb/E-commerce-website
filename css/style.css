@@ -207,7 +207,21 @@ a{
     background-color: #FF00A8;
     /* margin-left: 80px; */
 }
-
+.aboutus{
+    width: 100vw;
+    height: 100vh;
+    background-color: #84EAD8;
+    text-align: center;
+}
+.about-p{
+    text-align: center;
+    font-weight: 500;
+    margin-top: 10vh;
+}
+.about-img{
+    margin-top: 5vh;
+    height: 40vh;
+}
 
 
 
