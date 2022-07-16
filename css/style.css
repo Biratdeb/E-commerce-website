@@ -233,8 +233,9 @@ a{
     background-color: #FFBB95;
 }
 .footer-section h5{
-
+    padding-left: 40px;
     color: black;
+    /* font-weight: light !important; */
 
 }
 
