@@ -1,18 +1,28 @@
+/* 
+--------------------------------------------------
+Project Name : E-commerce website project
+Aurthor Name : Birat Deb
+Version : E-commerce website version :- 1.0.0
+The version code by the aurthor MR.Birat Deb : e-com_pro_18-7-2022_pub_fir_ver_1111_biratdeb
+License No : This website is totally under control to the aurthor MR.Birat Deb. If anyone try to make any kind of copy of this website without the permission of 
+the aurthor then  they will be restricted under the copy right law. 
+NOTE: THE WEBSITE IS NOT PERMITTED FOR MAKING ANY KIND OF COPY. IF ANYONE MAKES THE COPY OF THIS WEBSITE THEN THEY WILL BE RESTRICTED UNDER THE COPYRIGHT LAW. ALL OF THE RIGHTS
+IS GOES TO UNDER THE AURTHOR MR.BIRAT DEB. ALL RIGHTS ARE RESERVED BY 2022.
+
+
+--------------------------------------------------
+
+*/
+
+
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
    
 }
-/* .search-button{
-    
-    margin-left: 10px !important;
-    border: 1px solid white;
-    height: 2rem;
-    width: 150px;
-    border-radius: 50px;
-    background-color: #84EAD8;
-} */
+
 .search-button {
     margin-left: 10px !important;
     border: 1px solid white;
@@ -47,6 +57,7 @@ ul li .custom-buttom{
 .hero-aria{
     width: 100vw;
     height: 50vh;
+    
 }
 /* .img-sun{
     width: 15vw;
@@ -88,7 +99,7 @@ a{
 .featured-section{
     background-color: #85F0D6;
     width: 100vw;
-    height: 150vh;
+    height: auto;
 }
 
 /* .custom-carosel-img{
@@ -150,7 +161,7 @@ a{
     display: flex;
     background-color: #FFBB95;
     width: 100vw;
-    height: 100vh;
+    height: auto;
 }
 
 .custom-text-bold{
@@ -192,10 +203,10 @@ a{
     margin-left: 45vw!important;
     font-weight: smaller!important;
     text-align: center!important;
-    width: 10vw !important;
-    height: 5vh;
+    width: fit-content !important;
+    height: 10vh;
     background-color: #1CFF92;
-    font-size: 1rem !important;
+    font-size: .9rem !important;
 
     margin-bottom: 50px !important;
     outline: none;
@@ -253,6 +264,15 @@ a{
 
 }
 
+.respon-row-custom {
+    width: auto !important;
+}
+
+
+.developed-by{
+    font-weight: 500 !important;
+    color: blue !important;
+}
 
 
 
@@ -262,20 +282,109 @@ a{
 
 
 
+/* =======================================================
+  
+    responsive css codes starts here
+  
+===========================================================
 
+*/
 
-/* .main-our-newsletter{
-    
-} */
-
-
-
-
-
-
-
-
-
+@media only screen and (max-width:200px){
+    .respon-row-custom{
+        width: 10vw !important;
+    }
+    .footer-section {
+        
+        width: 100vw;
+        height: 200vh;
+        font-weight: lighter;
+        background-color: #FFBB95;
+    }
+}
+@media only screen and (min-width:200px) and (max-width: 300px){
+    .respon-row-custom{
+        width: 15vw !important;
+    }
+    .footer-section {
+        
+        width: 100vw;
+        height: 200vh;
+        font-weight: lighter;
+        background-color: #FFBB95;
+    }
+}
+@media only screen and (min-width:300px) and (max-width:500px){
+    .respon-row-custom{
+        width: 40vw !important;
+       
+        display: block !important;
+        
+    }
+    .footer-section {
+        padding-left: 100px !important;
+        width: 100vw;
+        height: 200vh;
+        
+        font-weight: lighter;
+        background-color: #FFBB95;
+    }
+}
+@media only screen and (min-width:500px) and (max-width:800px){
+    .respon-row-custom{
+        width: 20rem !important;
+        
+    }
+    .footer-section {
+        
+        width: 100vw;
+        height: 50vh;
+        
+        font-weight: lighter;
+        background-color: #FFBB95;
+    }
+}
+@media only screen and (min-width:800px) and (max-width:1000px){
+    .respon-row-custom{
+        width: 30rem !important;
+        
+    }
+    .footer-section {
+        
+        width: 100vw;
+        height: 50vh;
+        
+        font-weight: lighter;
+        background-color: #FFBB95;
+    }
+}
+@media only screen and (min-width:1000px){
+    .respon-row-custom{
+        width: auto !important;
+        
+    }
+    .footer-section {
+        
+        width: 100vw;
+        height: 50vh;
+        
+        font-weight: lighter;
+        background-color: #FFBB95;
+    }
+}
+ /* @media only screen and (min-width:1200px){
+    .respon-row-custom{
+        width: 50vw !important;
+    }
+    .footer-section {
+        
+        width: 100vw;
+        height: 150vh;
+        font-weight: lighter;
+        background-color: #FFBB95;
+    }
+}
+ */
 
 
 
@@ -290,3 +399,13 @@ a{
       background-color: lightblue;
     }
   } */
+
+
+
+
+/* =======================================================
+  
+    responsive css codes ends here
+  
+===========================================================  
+  */
