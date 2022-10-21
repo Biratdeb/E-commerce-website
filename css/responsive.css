@@ -1,0 +1,56 @@
+/* Smartphones (portrait and landscape) ---------- */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    .for-block {
+        background-color: green !important;
+        width: 15rem;
+        display: block;
+        margin-bottom: 0px;
+        margin-left: 0px;
+        padding-left: 0px;
+        padding-bottom: 0px;
+        padding-top: 0px;
+    }
+}
+
+/* Smartphones (portrait) ---------- */
+@media screen and (max-width: 320px){
+    .for-block {
+        background-color: white;
+        width: 15rem;
+        display: block;
+        margin-bottom: 25px;
+        margin-left: 0;
+        padding-left: 0;
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+    .product-p {
+        font-size: 1rem;
+        margin-left: 5px;
+    }
+    .custom-text-bold {
+        font-weight: bolder;
+        font-size: 10px;
+        display: inline-flex;
+    }
+    .respon-img-product {
+        /* padding-left: 50px !important; */
+        max-height: 220px !important;
+        max-width: 5rem !important;
+        /* margin-left: 40vw !important; */
+        margin: auto;
+    }
+    .custom-newsletter-section {
+        /* font-weight: normal; */
+        display: inline-block;
+       
+    }
+    .about-p {
+        text-align: start;
+  
+    }
+    .about-img {
+        margin-top: 10vh;
+        height: 100px;
+    }
+}
