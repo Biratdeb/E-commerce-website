@@ -31,6 +31,7 @@
 <body>
     <?php 
     include "../assets/_header.php";?>
+    include "../assets/_db_connect.php";
     
     <div class="container">
         <h1>Welcome to our Admin Panel</h1>
@@ -41,11 +42,11 @@
                 <?php 
                 if(isset($_SERVER['REQUEST_METHOD'])== "POST"){
                     echo 'post works';
+                    
                 }
                 else{
                     echo 'post cannot work';
                 }
-                include "../assets/_db_connect.php";
             //    if(isset($_POST['submit'])){
             //     echo 'post woks';
             //    }
