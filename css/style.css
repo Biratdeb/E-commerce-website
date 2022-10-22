@@ -156,7 +156,21 @@ a{
 }
 
 .custom-dropdown-background-color{
+    /* background-color: #FF9CD7; */
+    background-color: white;
+    /* transition: all 500ms; */
+}
+/* .custom-dropdown-background-color:hover{
     background-color: #FF9CD7;
+    background-color: grey;
+    transition: all ease-in 5000ms;
+} */
+.custom-dropdown-transition{
+    transition: all ease 1000ms;
+}
+.custom-dropdown-transition:hover{
+    color: white;
+    background-color: black;
 }
 
 .custom-newsletter-section{
