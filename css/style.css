@@ -281,10 +281,17 @@ a{
 
 .developed-by{
     font-weight: 500 !important;
-    color: green !important;
+    color: white !important;
+    text-align: center !important;
+    margin: auto !important;
+}
+.desktop-footer{
+    display: flex !important;
 }
 
-
+.mobile-footer{
+    display: none !important;
+}
 
 
 

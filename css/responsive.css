@@ -1,29 +1,19 @@
 /* Smartphones (portrait and landscape) ---------- */
 @media screen and (min-width: 320px) and (max-width: 480px) {
     .for-block {
-        background-color: green !important;
-        width: 15rem;
-        display: block;
-        margin-bottom: 0px;
-        margin-left: 0px;
-        padding-left: 0px;
-        padding-bottom: 0px;
-        padding-top: 0px;
-    }
-}
-
-/* Smartphones (portrait) ---------- */
-@media screen and (max-width: 320px){
-    .for-block {
-        background-color: white;
+       
         width: 15rem;
         display: block;
         margin-bottom: 25px;
-        margin-left: 0;
-        padding-left: 0;
+        margin-left: auto;
+        padding-left: 10px;
         padding-bottom: 0;
         padding-top: 0;
+        margin-right: auto;
+        text-align: start;
     }
+    
+    
     .product-p {
         font-size: 1rem;
         margin-left: 5px;
@@ -33,7 +23,13 @@
         font-size: 10px;
         display: inline-flex;
     }
+    .btn-custom-ViewMoreProducts {
+        /* margin-right: auto; */
+        margin-left: 5rem !important;
+        /* margin-left: 45vw!important; */
+    }
     .respon-img-product {
+        padding-top: 1rem;
         /* padding-left: 50px !important; */
         max-height: 220px !important;
         max-width: 5rem !important;
@@ -53,4 +49,132 @@
         margin-top: 10vh;
         height: 100px;
     }
+    .respon-row-custom {
+        width: 40vw !important;
+        display: inline-flex;
+        /* margin: 50px; */
+        margin-left: 25px;
+    }
+    .desktop-footer{
+        display: none;
+    }
+   /* p{
+    line-height: 15px;
+   } */
+   .custom-line-height{
+    line-height: 15px !important;
+   }
+   .custom-hover-link:hover{
+    text-decoration: underline;
+    /* color: green !important; */
+
+   }
+   .custom-footer-link{
+    color: darkgray !important;
+   }
+   .mobile-footer{
+    display: block !important;
+   }
+   .desktop-footer{
+    display: none !important;
+   }
+   .img-gallary-contents img {
+    max-height: 220px !important;
+    max-width: 4rem !important;
+    /* margin-left: 2vw !important; */
+}
+}
+
+/* Tablets, iPads (portrait and landscape) ---------- */
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .desktop-footer{
+        display: flex !important;
+    }
+}
+
+/* Smartphones (portrait) ---------- */
+@media screen and (max-width: 320px){
+    .for-block {
+       
+        width: 15rem;
+        display: block;
+        margin-bottom: 25px;
+        margin-left: auto;
+        padding-left: 10px;
+        padding-bottom: 0;
+        padding-top: 0;
+        margin-right: auto;
+        text-align: start;
+    }
+    
+    
+    .product-p {
+        font-size: 1rem;
+        margin-left: 5px;
+    }
+    .custom-text-bold {
+        font-weight: bolder;
+        font-size: 10px;
+        display: inline-flex;
+    }
+    .btn-custom-ViewMoreProducts {
+        /* margin-right: auto; */
+        margin-left: 5rem !important;
+        /* margin-left: 45vw!important; */
+    }
+    .respon-img-product {
+        padding-top: 1rem;
+        /* padding-left: 50px !important; */
+        max-height: 220px !important;
+        max-width: 5rem !important;
+        /* margin-left: 40vw !important; */
+        margin: auto;
+    }
+    .custom-newsletter-section {
+        /* font-weight: normal; */
+        display: inline-block;
+       
+    }
+    .about-p {
+        text-align: start;
+  
+    }
+    .about-img {
+        margin-top: 10vh;
+        height: 100px;
+    }
+    .respon-row-custom {
+        width: 40vw !important;
+        display: inline-flex;
+        /* margin: 50px; */
+        margin-left: 25px;
+    }
+    .desktop-footer{
+        display: none;
+    }
+   /* p{
+    line-height: 15px;
+   } */
+   .custom-line-height{
+    line-height: 15px !important;
+   }
+   .custom-hover-link:hover{
+    text-decoration: underline;
+    /* color: green !important; */
+
+   }
+   .custom-footer-link{
+    color: darkgray !important;
+   }
+   .mobile-footer{
+    display: block !important;
+   }
+   .desktop-footer{
+    display: none !important;
+   }
+   .img-gallary-contents img {
+    max-height: 220px !important;
+    max-width: 4rem !important;
+    /* margin-left: 2vw !important; */
+}
 }
