@@ -1,4 +1,4 @@
-include "_header.php";
+<?php include "_header.php"; ?>
 
     <!-- hero-aria starts here -->
 
@@ -551,4 +551,4 @@ include "_header.php";
 
 
 
-  include "_footer.php";
+ <?php include "_footer.php";?>
