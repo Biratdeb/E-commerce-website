@@ -261,6 +261,7 @@ a{
     height: 40vh;
 }
 .footer-section{
+    /* margin-top: 400px !important; */
     padding-top: 50px;
     width: 100vw;
     height: 50vh;
@@ -381,7 +382,7 @@ a{
         
     }
     .footer-section {
-        
+        /* margin-top: 400px !important; */
         width: 100vw;
         height: 50vh;
         

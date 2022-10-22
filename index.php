@@ -1,4 +1,5 @@
-<?php include "_header.php"; ?>
+<?php include "assets/_header.php"; ?>
+<?php include "assets/_db_connect.php";?>
 
     <!-- hero-aria starts here -->
 
@@ -355,23 +356,40 @@
 
             <div class="product1">
                 <div class="row text-align-center mt-3">
-                    <div class="for-block col-3">
+                    <?php 
+                       $sql = "SELECT * FROM `products`";
+                       $result = mysqli_query($conn, $sql);
+                       if(mysqli_num_rows($result)>0){
+                        while($row = mysqli_fetch_assoc($result)){
+                            echo '<div class="for-block col-3">
 
-                        <a href="#">
+                      <a href="#">
 
-                            <img src="img/mordern_watch.jpg"
-                                class="d-block w-100 img-fluid  custom-carosel-img respon-img-product" alt="..."><br>
-                            <div class="for-only-prod-p">
-                                <p class="product-p">Product name: Mordern products <br> color:
-                                    black
-                                    <br>
-                                    price:$20
-                                    <br> model no : brrkd6584ds</p>
-                                    <button type="submit" class="btn btn-success">Add to cart</button>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="for-block col-3">
+                          <img src="img/'.$row['product_img'].' " alt="'.$row['product_name'].'"
+                              class="d-block w-100 img-fluid  custom-carosel-img respon-img-product" alt="..."><br>
+                          <div class="for-only-prod-p">
+                              <?php 
+                           
+                              
+                              
+                              
+                              ?>
+                              <p class="product-p">Product name:'.$row['product_name'].'  <br>
+                               color: '.$row['product_color'].'
+                                  <br>
+                                  price: '.$row['product_price'].'
+                                  <br> model no : '.$row['product_id_no'].'</p>
+                                  <button type="submit" class="btn btn-success">Add to cart</button>
+                          </div>
+                      </a>
+                  </div>';
+                        }
+                       }
+                      
+                       
+                    
+                    ?>
+                    <!-- <div class="for-block col-3">
 
                         <a href="#">
 
@@ -509,7 +527,7 @@
                         </a>
 
 
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -551,4 +569,4 @@
 
 
 
- <?php include "_footer.php";?>
+ <?php include "assets/_footer.php";?>
