@@ -1,5 +1,6 @@
 <?php include "assets/_header.php"; ?>
 <?php include "assets/_db_connect.php";?>
+<?php include "assets/_constant.php";?>
 
     <!-- hero-aria starts here -->
 
@@ -40,13 +41,13 @@
                                     <div class="row text-align-center">
                                         <div class="for-block col-3">
 
-                                            <a href="#">
+                                            <a href="<?php SITE_URL?>admin/admin_dashboard.php/">
 
                                                 <img src="img/mordern_watch.jpg"
                                                     class="d-block w-100 img-fluid  custom-carosel-img respon-img-product"
                                                     alt="..."><br>
                                                 <div class="for-only-prod-p">
-                                                    <p class="product-p">Product name: Mordern products <br> color:
+                                                    <p class="product-p">Product name: Mordern SITE_URL products <br> color:
                                                         black
                                                         <br>
                                                         price:$20
@@ -365,7 +366,7 @@
 
                       <a href="#">
 
-                          <img src="img/'.$row['product_img'].' " alt="'.$row['product_name'].'"
+                          <img src="product_img/'.$row['product_img'].' " alt="'.$row['product_name'].'"
                               class="d-block w-100 img-fluid  custom-carosel-img respon-img-product" alt="..."><br>
                           <div class="for-only-prod-p">
                               <?php 
@@ -378,7 +379,7 @@
                                color: '.$row['product_color'].'
                                   <br>
                                   price: '.$row['product_price'].'
-                                  <br> model no : '.$row['product_id_no'].'</p>
+                                  <br> model no : '.$row['product_model_id_no'].'</p>
                                   <button type="submit" class="btn btn-success">Add to cart</button>
                           </div>
                       </a>

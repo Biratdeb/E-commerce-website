@@ -27,11 +27,23 @@
         border: 1px solid blue;
         color: blue;
     }
+    ul li .custom-buttom {
+    border-radius: 50px !important;
+    background-color: #15F4BF;
+}
+
+ul li a{
+    text-decoration: none !important;
+}
 </style>
 <body>
+
     <?php 
-    include "../assets/_header.php";?>
+    include "../assets/_header.php";
     include "../assets/_db_connect.php";
+    
+    ?>
+    
     
     <div class="container">
         <h1>Welcome to our Admin Panel</h1>
@@ -40,19 +52,58 @@
         <div class="add-products">
             <div class="container text-center">
                 <?php 
-                if(isset($_SERVER['REQUEST_METHOD'])== "POST"){
-                    echo 'post works';
+                // if(isset($_SERVER['REQUEST_METHOD'])== "POST"){
+                //     echo 'post works';
                     
+                // }
+                // else{
+                //     echo 'post cannot work';
+                // }
+
+              
+
+                include "../assets/_db_connect.php";
+               if(isset($_POST['submit_products'])){
+                
+                
+                // product details to add on the product section
+
+                $product_model = $_POST['product_model'];
+                $product_name = $_POST['product_name'];
+                $product_desc = $_POST['product_desc'];
+                $product_price = $_POST['product_price'];
+                $product_color = $_POST['product_color'];
+
+                // $product_img = $_POST['product_img'];
+
+                $product_img = $_FILES['img']['name'];
+                echo var_dump($product_img);
+                $product_img_tmpname = $_FILES['img']['tmp_name'];
+               
+
+                $product_img_upload_location = '../product_img/' . $product_img;
+
+               echo strlen($product_name);
+
+                // sql to add all the product data into the product section
+
+                $sql_add_product = "INSERT INTO `products` (`id`, `product_model_id_no`, `product_name`, `product_desc`, `product_img`, `product_color`, `product_price`, `datetime`) VALUES (NULL, '$product_model', '$product_name', '$product_desc', '$product_img', '$product_color', '$product_price', current_timestamp());";
+                
+                
+                // $sql_add_product = "INSERT INTO `products` (`product_img`, `datetime`) VALUES ('$product_img', current_timestamp());";
+                $result = mysqli_query($conn, $sql_add_product);
+
+                if($result){
+                    move_uploaded_file($product_img_tmpname, $product_img_upload_location);
+                    echo 'posted successfully all the data';
+
+                }else{
+                    echo 'product not works';
                 }
-                else{
-                    echo 'post cannot work';
-                }
-            //    if(isset($_POST['submit'])){
-            //     echo 'post woks';
-            //    }
-            //    else{
-            //     echo 'post csnnot work';
-            //    }
+               }
+               else{
+                echo 'post csnnot work';
+               }
                 
                 
                 
@@ -60,34 +111,41 @@
                 
                 
                 ?>
+                <!-- product section add products starts here -->
             <b><p class="fs-5">Add  products to products section</p></b>
-            <form action="./admin_dashboard.php" method="post">
+            <form action="./admin_dashboard.php" method="post" enctype="multipart/form-data">
+                <input type="text" name="product_model" id="" placeholder="Product Model No" class="product-text"><br><br>
                 <input type="text" name="product_name" id="" placeholder="Product name" class="product-text"><br><br>
-                <input type="text" name="product_desc" id="" placeholder="Product discription" class="product-text"><br><br>
+                <input type="text" name="product_desc" id="" placeholder="Product discription" class="product-text" ><br><br>
                 <input type="text" name="product_price" id="" placeholder="Product Price" class="product-text"><br><br>
                 <input type="text" name="product_color" id="" placeholder="Product Color" class="product-text"><br><br>
-                <input type="text" name="product_model" id="" placeholder="Product Model No" class="product-text"><br><br>
-                <input type="file" name="" id="" class="file"><br><br>
-                <button type="submit" class="btn btn-success">Submit</button><br>
+                <input type="file" name="img" id="" class="file" ><br><br>
+                <button type="submit" class="btn btn-success" name="submit_products">Submit</button><br>
                 </form>
             </div>
         </div><br><br><br><br>
-        
+
+        <!-- product section add products ends here -->
+
+        <!-- featured product section starts here -->
+<!--         
         <div class="add-products-featured">
             <div class="container text-center">
                 <b><p class="fs-5">Add  products featured section</p></b>
-                <input type="text" name="" id="" placeholder="Product name" class="product-text"><br><br>
-                <input type="text" name="" id="" placeholder="Product discription" class="product-text"><br><br>
-                <input type="text" name="" id="" placeholder="Product Price" class="product-text"><br><br>
-                <input type="text" name="" id="" placeholder="Product Color" class="product-text"><br><br>
-                <input type="text" name="" id="" placeholder="Product Model No" class="product-text"><br><br>
+                <form action="./admin_dashboard.php" method="post">
+                <input type="text" name="" id="" placeholder="Featured Product name" class="product-text"><br><br>
+                <input type="text" name="" id="" placeholder="Featured Product Description" class="product-text"><br><br>
+                <input type="text" name="" id="" placeholder="Featured Product Price" class="product-text"><br><br>
+                <input type="text" name="" id="" placeholder="Featured Product Color" class="product-text"><br><br>
+                <input type="text" name="" id="" placeholder="Featured Product Model No" class="product-text"><br><br>
                 <input type="file" name="" id="" class="file"><br><br>
                 <button type="submit" class="btn btn-success">Submit</button><br>
+                </form>
                 
             </div>
         </div>
-    </div>
-    
+    </div> -->
+    <!-- featured product section ends here -->
 
     <?php include "../assets/_footer.php" ?>
     <script src="../js/bootstrap.bundle.min.js"></script>
