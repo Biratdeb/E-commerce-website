@@ -13,7 +13,10 @@
 // THE SITE URL IS HERE
 
 
-define("SITE_URL", "http://localhost/phpdevelopment/ecom-web/");
+// define("SITE_URL", "http://localhost/phpdevelopment/ecom-web/");
+
+if (!defined('SITE_URL')) define('SITE_URL', 'http://localhost/phpdevelopment/ecom-web/');
+// if 
 
 // we will define the url as the example
 

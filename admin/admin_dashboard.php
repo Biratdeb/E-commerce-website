@@ -1,3 +1,18 @@
+<?php 
+session_start();
+if(!isset($_SESSION['admin_username'])){
+
+//    echo 'logged in';
+   header("location:login.php");
+
+}
+
+
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,8 +62,9 @@ ul li a{
     
     <div class="container">
         <h1>Welcome to our Admin Panel</h1>
-        <small>Logged in as Lokeshwar Deb</small> <br> <br>
-
+        <p></p>
+        <small>logged in as <strong><?php echo $_SESSION['admin_username'] ?></strong></small> <br> <br>
+        <button class="btn btn-danger text-light"><a href="logout.php" class="text-light">Log Out</a></button>
         <div class="add-products">
             <div class="container text-center">
                 <?php 
@@ -96,6 +112,10 @@ ul li a{
                 if($result){
                     move_uploaded_file($product_img_tmpname, $product_img_upload_location);
                     echo 'posted successfully all the data';
+                    echo'<div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>Success!</strong> Successfully added all product information on the product section.
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>';
 
                 }else{
                     echo 'product not works';
@@ -114,12 +134,12 @@ ul li a{
                 <!-- product section add products starts here -->
             <b><p class="fs-5">Add  products to products section</p></b>
             <form action="./admin_dashboard.php" method="post" enctype="multipart/form-data">
-                <input type="text" name="product_model" id="" placeholder="Product Model No" class="product-text"><br><br>
-                <input type="text" name="product_name" id="" placeholder="Product name" class="product-text"><br><br>
-                <input type="text" name="product_desc" id="" placeholder="Product discription" class="product-text" ><br><br>
-                <input type="text" name="product_price" id="" placeholder="Product Price" class="product-text"><br><br>
-                <input type="text" name="product_color" id="" placeholder="Product Color" class="product-text"><br><br>
-                <input type="file" name="img" id="" class="file" ><br><br>
+                <input type="text" name="product_model" id="" placeholder="Product Model No" class="product-text" required><br><br>
+                <input type="text" name="product_name" id="" placeholder="Product name" class="product-text" required><br><br>
+                <input type="text" name="product_desc" id="" placeholder="Product discription" class="product-text" required ><br><br>
+                <input type="text" name="product_price" id="" placeholder="Product Price" class="product-text" required><br><br>
+                <input type="text" name="product_color" id="" placeholder="Product Color" class="product-text" required><br><br>
+                <input type="file" name="img" id="" class="file" required ><br><br>
                 <button type="submit" class="btn btn-success" name="submit_products">Submit</button><br>
                 </form>
             </div>
