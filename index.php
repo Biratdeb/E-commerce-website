@@ -2,7 +2,7 @@
 
 // use function PHPSTORM_META\type;
 
- include "assets/_header.php"; ?>
+include "assets/_header.php"; ?>
 <?php include "assets/_db_connect.php"; ?>
 <?php include "assets/_constant.php"; ?>
 
@@ -323,14 +323,67 @@
         </div>
         <div class="col-4 text-end pt-5">
 
-            <input type="text" placeholder="Eamil Address" class="custom-news-subcribe-input-btn">
-            <button id="sub" onclick="sub()" type="submit" class="custom-news-subcribe-submit-btn custom-responsive-btn custom-text-respon respon-p">Subscribe</button>
+            <form action="./index.php" method="post">
+                <input type="email" id="subs_email" name="subscribe_email" placeholder="Eamil Address" class="custom-news-subcribe-input-btn" required>
+                <button id="sub" onclick="sub()" name="subscribe" type="submit" class="custom-news-subcribe-submit-btn custom-responsive-btn custom-text-respon respon-p">Subscribe</button>
+
+                <?php
+                if (isset($_POST['subscribe'])) {
+                    // echo 'submited subs';
+                    $subscribed_email = $_POST['subscribe_email'];
+                    if ($subscribed_email == !'') {
+                        echo 'Subscribed with the email ';
+                        echo $subscribed_email;
+                        // echo '. Thanks for staying with us..';
+                        echo '<button style = "margin-left:40px;width:8rem;color:white;background-color:grey !important; border:1px solid black; border-radius:100px; outline:none">SUBSCRIBED</button>';
+                        echo '  <script>
+                                     document.getElementById("sub").style = "display:none;"
+                                </script>';
+                        echo '  <script>
+                                     document.getElementById("subs_email").style = "display:none;"
+                                </script>';
+                    } else {
+                        echo 'you have to choose the email';
+                    }
+                } else {
+                    // echo 'not submitted subs';
+                }
+
+
+
+
+                ?>
+
+            </form>
         </div>
     </div>
 
 </div>
 
+<!-- <?php
+        if (isset($_POST['subscribe'])) {
+            echo 'submited subs';
+            $subscribed_email = $_POST['subscribe_email'];
+            if ($subscribed_email == '') {
+                echo ' you have to choose the email';
+                echo '<button style = "width:8rem;color:white;background-color:grey !important; border:1px solid black; border-radius:100px; outline:none">SUBSCRIBED</button>';
+                //     echo '  <script>
+                //     function sub() {
+                //         document.getElementById("sub").innerHTML = '.'<button style = "width:8rem;color:white;background-color:grey; border:1px solid black; border-radius:100px; outline:none">SUBSCRIBED</button>'.'
+                //     }
+                //     // function sub();
+                // </script>';
+            } else {
+                echo 'you have choosen the email';
+            }
+        } else {
+            echo 'not submitted subs';
+        }
 
+
+
+
+        ?> -->
 
 
 
@@ -367,21 +420,19 @@
                               <p class="product-p">Product name:' . $row['product_name'] . ' 
                               ';
 
-                       
+
 
                         echo '
                               <br>
                                color: ' . $row['product_color'] . '
                                   <br>
-                                  price: ' .$row['product_price'] . '
+                                  price: ' . $row['product_price'] . '
                                   <br> model no : ' .  $row['product_model_id_no'] . '</p>
                                   <button type="submit" class="btn btn-success">Add to cart</button>
                           </div>
                       </a>
                   </div>';
-            
                     }
-    
                 }
 
 
@@ -407,35 +458,41 @@
 
             -->
 
-<!-- product section ends -->
+                <!-- product section ends -->
 
 
-<!-- about us section starts -->
+                <!-- about us section starts -->
 
-<div class="about-us-section">
-    <div class="container-fluid aboutus">
-        <h2>About us</h2>
-        <div class="row">
-            <div class="col-6">
-                <p class="about-p">We are one of the biggest online store and we provide the best product for you.
-                    <br>
-                    You can be find the latest product and get the chepest prize from us
-                </p>
-            </div>
-            <div class="col-6">
-                <img src="img/store.jpg" class="img-fluid about-img " alt="" srcset="">
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-<!-- about us section ends -->
+                <div class="about-us-section">
+                    <div class="container-fluid aboutus">
+                        <h2>About us</h2>
+                        <div class="row">
+                            <div class="col-6">
+                                <p class="about-p">We are one of the biggest online store and we provide the best product for you.
+                                    <br>
+                                    You can be find the latest product and get the chepest prize from us
+                                </p>
+                            </div>
+                            <div class="col-6">
+                                <img src="img/store.jpg" class="img-fluid about-img " alt="" srcset="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
 
 
 
-<?php include "assets/_footer.php"; ?>
+
+                <!-- about us section ends -->
+
+
+                <!-- <script src="js/script.js"></script> -->
+                <script>
+                    function sub() {
+                        document.getElementById('sub').innerHTML = '<button style = "width:8rem;color:white;background-color:grey !important; border:1px solid black; border-radius:100px; outline:none">SUBSCRIBED</button>'
+                    }
+                    // function sub();
+                </script>
+
+                <?php include "assets/_footer.php"; ?>
