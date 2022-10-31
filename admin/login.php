@@ -10,7 +10,10 @@
     <style>
         body {
             /* background-color: #EEEEEE; */
-            background-color: darkslategrey;
+            /* background-color: darkslategrey; */
+            background-image: url('../img/img4.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
         }
 
         .product-text {
@@ -44,11 +47,13 @@
             /* top: 50%; */
             /* height: 50px; */
             /* margin: 50px; */
-            background-color: slategrey;
+            background-color: black;
             height: 440px;
             color: white;
             border-radius: 50px;
             outline-color: green;
+            opacity: 85% !important;
+
 
 
         }
@@ -215,7 +220,8 @@
                 <img src="../img/ecom-web-logo.png" class="text-center m-center" alt="" width="100px" style="border-radius: 10px;" srcset=""><br>
                 <input type="text" name="adm_user_name" id=""class="text-center custom-m-left" placeholder="your username" required><br>
                 <input type="password" name="adm_user_pas" id=""class="text-center custom-m-left" placeholder="your password" required><br>
-                <button type="submit" name="submit" class="btn btn-danger text-center">button</button>
+                <button type="submit" name="submit" class="btn btn-danger text-center">button</button><br><br>
+                
                 <!-- <input type="submit" value=""> -->
             </div>
             </div>
