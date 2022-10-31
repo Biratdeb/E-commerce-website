@@ -335,7 +335,7 @@ include "assets/_header.php"; ?>
                         echo 'Subscribed with the email ';
                         echo $subscribed_email;
                         // echo '. Thanks for staying with us..';
-                        echo '<button style = "margin-left:40px;width:8rem;color:white;background-color:grey !important; border:1px solid black; border-radius:100px; outline:none">SUBSCRIBED</button>';
+                        echo '<button style = "margin-left:40px;width:8rem;color:white;background-color:grey !important; border:1px solid black; border-radius:100px; outline:none">Subscribed</button>';
                         echo '  <script>
                                      document.getElementById("sub").style = "display:none;"
                                 </script>';
