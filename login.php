@@ -146,7 +146,7 @@
                     // echo '<br>username <br>'. $row['admin_username'];
                 //    echo password_verify($admin_password, $row['admin_password']);
                    
-             $varift =  (password_verify($admin_password, $row['password']));
+             $varift =  (password_verify($user_password, $row['password']));
              $db_pass = $row['password'];
              if($varift == $db_pass){
                 echo 'password matched';
@@ -220,8 +220,9 @@
                 <img src="img/ecom-web-logo.png" class="text-center m-center" alt="" width="100px" style="border-radius: 10px;" srcset=""><br>
                 <input type="text" name="user_name" id=""class="text-center custom-m-left" placeholder="your username" required><br>
                 <input type="password" name="user_pas" id=""class="text-center custom-m-left" placeholder="your password" required><br>
-                <button type="submit" name="submit" class="btn btn-danger text-center">button</button><br><br>
-                <p>Don't have a account? Please <a href=""> Signup </a> to create your account</p>
+                <button type="submit" name="submit" class="btn btn-danger text-center">login</button><br><br>
+                <p>Don't have a account? Please <a href="signup.php"> Signup </a> to create your account</p>
+                <p>I have<a href="forget_pass.php">  forgoted  </a> my password</p>
                 <!-- <input type="submit" value=""> -->
             </div>
             </div>
