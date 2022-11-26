@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -143,10 +144,10 @@
                         <img src="img/ecom-web-logo.png" class="text-center m-center" alt="" width="100px" style="border-radius: 10px;" srcset=""><br>
                         <input type="text" id="user_name" name="user_name" class="text-center custom-m-left" placeholder="your username" required><br>
                         <input type="email" id="user_email" name="user_email" class="text-center custom-m-left" placeholder="your email" required><br>
-                        <input type="password" name="user_pas" id="reset_pass" class="text-center custom-m-left" placeholder="your password" required style="display: none;"><br>
-                        <button type="submit" name="submit" class="btn btn-danger text-center">login</button><br><br>
+                        <!-- <input type="password" name="user_pas" id="reset_pass" class="text-center custom-m-left" placeholder="your password" required style="display: none;"><br> -->
+                        <button type="submit" name="forgeted" class="btn btn-danger text-center">submit</button><br><br>
                         <p>Don't have a account? Please <a href="signup.php"> Signup </a> to create your account</p>
-                        <p>I have<a href="forget_pass.php"> forgoted </a> my password</p>
+                        <p>I want to<a href="login.php"> go back on login </a> my password</p>
                         <!-- <input type="submit" value=""> -->
                     </div>
                 </div>
@@ -154,7 +155,7 @@
         </div>
     </form>
 
-<!-- 
+
     <form action="./forget_pass.php" method="post" enctype="multipart/form-data " id="reset_pass" style="display: none;">
         <div class=" container">
             <div class="loginbox">
@@ -169,12 +170,12 @@
                         <button type="submit" name="reset" class="btn btn-danger text-center">submit</button><br><br>
                         <p>Dont have a account? Please <a href="signup.php"> Signup </a> to create your account</p>
 
-                        <!-- <input type="submit" value=""> -->
+                      
                     </div>
                 </div>
             </div>
         </div>
-    </form> -->
+    </form> 
     <!-- admin login section ends here -->
 
     <?php
@@ -182,7 +183,7 @@
 $loggedin = false;
 
 include "assets/_db_connect.php";
-if (isset($_POST['submit'])) {
+if (isset($_POST['forgeted'])) {
     // echo 'posted';
     $user_name = $_POST['user_name'];
     $user_email = $_POST['user_email'];
@@ -196,12 +197,12 @@ if (isset($_POST['submit'])) {
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
-        // echo 'query runs <br>';
-        // echo ' <script>document.getElementById("forget_pass_vari").style = "display:none !important;"</script>';
-        // echo ' <script>document.getElementById("reset_pass").style = "display:inline !important;"</script>';
-        echo ' <script>document.getElementById("user_name").style = "display:none !important;"</script>';
-        echo ' <script>document.getElementById("user_name").style = "display:none !important;"</script>';
+        echo 'query runs <br>';
+        echo ' <script>document.getElementById("forget_pass_vari").style = "display:none !important;"</script>';
         echo ' <script>document.getElementById("reset_pass").style = "display:inline !important;"</script>';
+        // echo ' <script>document.getElementById("user_name").style = "display:none !important;"</script>';
+        // echo ' <script>document.getElementById("user_name").style = "display:none !important;"</script>';
+        // echo ' <script>document.getElementById("reset_pass").style = "display:inline !important;"</script>';
 
 
 
@@ -223,19 +224,24 @@ if (isset($_POST['submit'])) {
         // }
     }
     else{
-        echo 'reset not run';
+        echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>Error!</strong> reset not run
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>';
     }
 }
-// else{
-//     echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
-//     <strong>Error!</strong> Please give correct username and password to login.
-//     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-//   </div>';
-// }
+else{
+    echo '<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Error!</strong> Please give correct username and password to login.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>';
+}
 
 
 
 ?>
+
+
 
 
 

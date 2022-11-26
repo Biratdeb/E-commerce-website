@@ -1,12 +1,5 @@
 <?php 
-session_start();
-if(!isset($_SESSION['admin_username'])){
-
-//    echo 'logged in';
-   header("location:login.php");
-
-}
-
+include "admin_session-block.php";
 
 
 
@@ -54,9 +47,9 @@ ul li a{
 <body>
 
     <?php 
-    include "../assets/_header.php";
+    include "../assets/_admin_header.php";
     include "../assets/_db_connect.php";
-    
+    // include "../"
     ?>
     
     
@@ -167,7 +160,13 @@ ul li a{
     </div> -->
     <!-- featured product section ends here -->
 
-    <?php include "../assets/_footer.php" ?>
+    <?php
+    
+    
+    // include "../assets/_footer.php" 
+    
+    
+    ?>
     <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

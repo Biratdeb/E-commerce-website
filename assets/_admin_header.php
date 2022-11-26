@@ -1,3 +1,4 @@
+<!-- <?php session_start() ?> -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,8 +10,8 @@
 
     <!-- bootstrap all files link -->
 
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 
 
 
@@ -18,7 +19,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!-- custom css files -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 
     <!-- responsive css files -->
     <link rel="stylesheet" href="css/responsive.css">
@@ -27,7 +28,7 @@
 <body>
 
     <?php
-
+    // include "../admin/admin_session-block.php";
     include "_constant.php";
 
 
@@ -50,10 +51,10 @@
                 <ul class="navbar-nav m-auto text-center mb-2 mb-lg-0  ">
 
                     <li class="nav-item">
-                        <a class="nav-link text-white custom-text-respon" aria-current="page" href="#">Home</a>
+                        <a class="nav-link text-white custom-text-respon" aria-current="page" href="admin_dashboard.php">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white custom-text-respon" href="#">About</a>
+                        <a class="nav-link text-white custom-text-respon" href="orders.php">Orders</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -79,14 +80,26 @@
                     <li class="nav-item ">
                         <button class="btn btn-blue-green custom-border text-black  custom-buttom  mx-5 my-2"> <a href="#" class="custom-black"> Your Craft</a></button>
                     </li>
-                    <li class="nav-item new-login">
-                        <a href="<?php echo SITE_URL ?>login.php" class=""><button class="btn btn-dark custom-border text-light custom-login-btn custom-buttom  mx-5 my-2"> Login</button></a>
+                    <li class="nav-item new-logged_in">
+                        <ul>
+                     
+                            <p class="">Logged in as <?php echo $_SESSION['admin_username'] ?></p>
+                        </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="<?php echo SITE_URL ?>signup.php" class=""><button class="btn btn-outline-danger custom-signup-btn custom-border text-light custom-buttom  mx-5 my-2"> Signup</button></a>
+                        <a href="../admin/logout.php" class=""><button class="btn btn-outline-danger custom-signup-btn custom-border text-light   mx-5 my-2"> Logout</button></a>
+                        <a href="<?php echo SITE_URL ?>signup.php" class=""><button class="btn btn-outline-primary cudstom-signup-btn custom-border-primary text-light   mx-5 my-2"> Add new admin</button></a>
                     </li>
 
                     <style>
+                        .custom-border-primary{
+                            border: 1px solid yellow !important;
+                        }
+                        .custom-border-primary:hover{
+                            border: 1px solid blue !important;
+                            transition: all 500ms ease-in;
+                            /* color: black !important; */
+                        }
                         .custom-signup-btn{
                             border: 1px solid red !important;
                             transition: all 500ms ease-in;
@@ -136,6 +149,12 @@
                             transition: all 500ms ease-in;
                             color: black !important;
                             background-color: white;
+                        }
+                        .new-logged_in ul p{
+                            color: white !important;
+                            margin: auto;
+                            justify-content: center;
+                            padding-top: 10px;
                         }
                     </style>
                     <!-- <button class="btn btn-success rounded-border">Login</button> -->
