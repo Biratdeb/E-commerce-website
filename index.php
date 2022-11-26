@@ -407,83 +407,56 @@ include "assets/_header.php"; ?>
                 $result = mysqli_query($conn, $sql);
                 if (mysqli_num_rows($result) > 0) {
                     while ($row = mysqli_fetch_assoc($result)) {
-
-                        // get variable method to get the serial number on the clicked data
-                        $id_no = $_GET['sno'];
-
-                        // again included the database connection
-
-                        include 'assets/_db_connect.php';
-
-                        // sql to select the id from the database which has been got by the get method
-
-                        $sqlselect = "SELECT * FROM `products` WHERE `id` = '$id_no' ";
-
-                        $resultselect = mysqli_query($conn, $sqlselect);
-                        if($resultselect){
-                            echo '<div class="for-block col-3" id="cart-btn">
-                            <form action="cart_exe.php" method="post">
-                    
-                           '. $id_no = $_GET['sno'].'
-    
-                          <a href="#">
-                          <input type="hidden" name="" value="'.$row['id'].'">
-                              <img src="product_img/' . $row['product_img'] . ' " alt="' . $row['product_name'] . '"
-                                  class="d-block w-100 img-fluid  custom-carosel-img respon-img-product" alt="..."><br>
-                              <div class="for-only-prod-p">
-                                  <?php 
-                               
-                                  
-                                  
-                                  
-                                  ?>
-                                  <p class="product-p">Product name: <input type="text" name="product_name" value=" ' . $row['product_name'] . ' " style="border: none !important; outline:none" readonly>
-                                  ';
-    
-    
-    
-                            echo '
-                                  <br>
-                                   <p class="product-p">Product color: <input type="text" name="product_color" value=" ' . $row['product_color'] . ' " style="border: none !important; outline:none" readonly></p>
-                               
-                                      <br>
-                                      <p class="product-p">Product price: <input type="text" name="product_price" value="' . $row['product_price'] . '" style="border: none !important; outline:none" readonly>
-                                      </p>
-                                      
-                                      
-                                      <br>
-                                      
-                                      <p class="product-p">Product model no: <input type="text" name="product_model_no" value="' .  $row['product_model_id_no'] . '" style="border: none !important; outline:none" readonly></p>
-                                      
-                                     </p>
-                                      <button type="submit" class="btn btn-success" id="cart-btn-click" name="addCart">Add to cart</button>
-                                      </p>
-                              </div>
-                          </a>
-                          </form>
-                      </div>';
-                        }
+                        echo '<div class="for-block col-3" id="cart-btn">
+                        <form action="" method="get">
+                
                         
-                       
+
+                      <a href="#">
+
+                          <img src="product_img/' . $row['product_img'] . ' " alt="' . $row['product_name'] . '"
+                              class="d-block w-100 img-fluid  custom-carosel-img respon-img-product" alt="..."><br>
+                          <div class="for-only-prod-p">
+                              <?php 
+                           
+                              
+                              
+                              
+                              ?>
+                              <p class="product-p">Product name: <input type="text" name="product_name" value="' . $row['product_name'] . ' " style="border: none !important; outline:none" readonly>
+                              ';
+
+
+
+                        echo '
+                              <br>
+                               <p class="product-p">Product color: <input type="text" name="product_color" value="' . $row['product_color'] . ' " style="border: none !important; outline:none" readonly></p>
+                           
+                                  <br>
+                                  <p class="product-p">Product price: <input type="text" name="product_price" value="' . $row['product_price'] . '" style="border: none !important; outline:none" readonly>
+                                  </p>
+                                  
+                                  
+                                  <br>
+                                  
+                                  <p class="product-p">Product model no: <input type="text" name="product_modelno" value="' .  $row['product_model_id_no'] . '" style="border: none !important; outline:none" readonly></p>
+                                  
+                                 </p>
+                                  <button type="submit" class="btn btn-success" id="cart-btn-click" name="addCart">Add to cart</button>
+                                  </p>
+                          </div>
+                      </a>
+                      </form>
+                  </div>';
                     }
                 }
-                if (isset($_GET['addCart'])) {
-                    $product_name = $_GET['product_name'];
-                    $product_color = $_GET['product_color'];
-                    $product_price = $_GET['product_price'];
-                    $product_model_no = $_GET['product_model_no'];
-                } else {
-                    echo 'something went wrong';
-                }
+                // if(isset($_GET['addCart'])){
+                //     $product_name = $_GET['']
+                // }
 
 
 
                 ?>
-                <style>
-                    .product-p input {
-                        text-align: center !important;
-                    }
-                </style>
                 <!-- <p name ="></p> -->
                 <input type="text" name="" style="border: none !important; outline:none" readonly>t
                 <!-- <div class="for-block col-3">
