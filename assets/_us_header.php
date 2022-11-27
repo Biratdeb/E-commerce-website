@@ -51,20 +51,17 @@
                 <ul class="navbar-nav m-auto text-center mb-2 mb-lg-0  ">
 
                     <li class="nav-item">
-                        <a class="nav-link text-white custom-text-respon" aria-current="page" href="admin_dashboard.php">Dashboard</a>
+                        <a class="nav-link text-white custom-text-respon" aria-current="page" href="../users/us_dashboard.php">Dashboard</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white custom-text-respon" href="orders.php">Orders</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-white custom-text-respon" href="users.php">Users</a>
+                        <a class="nav-link text-white custom-text-respon" href="orders.php">My Orders</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Shop
                         </a>
                         <ul class="dropdown-menu custom-dropdown-background-color text-white" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item custom-text-respon custom-dropdown-transition" href="#">All Products</a></li>
+                            <li><a class="dropdown-item custom-text-respon custom-dropdown-transition" href="_all_products.php">All Products</a></li>
                             <li><a class="dropdown-item custom-text-respon custom-dropdown-transition" href="#">Featured Products</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -86,12 +83,13 @@
                     <li class="nav-item new-logged_in">
                         <ul>
                      
-                            <p class="">Logged in as <?php echo $_SESSION['admin_username'] ?></p>
+                            <p class="">Logged in as <?php echo $_SESSION['username'] ?></p>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="../admin/logout.php" class=""><button class="btn btn-outline-danger custom-signup-btn custom-border text-light   mx-5 my-2"> Logout</button></a>
-                        <a href="<?php echo SITE_URL ?>signup.php" class=""><button class="btn btn-outline-primary cudstom-signup-btn custom-border-primary text-light   mx-5 my-2"> Add new admin</button></a>
+                        <a href="../logout.php" class=""><button class="btn btn-outline-danger custom-signup-btn custom-border text-light   mx-5 my-2"> Logout</button></a>
+                        <a href="<?php echo SITE_URL ?>signup.php" class=""><button class="btn btn-outline-primary cudstom-signup-btn custom-border-primary text-light   mx-5 my-2"> Track orders</button></a>
+                        <a href="<?php echo SITE_URL ?>signup.php" class=""><button class="btn btn-outline-primary cudstom-signup-btn custom-border-primary text-light   mx-5 my-2"> Buy products</button></a>
                     </li>
 
                     <style>
@@ -167,5 +165,6 @@
         </div>
 
     </nav>
+    <script src="../js/bootstrap.min.js"></script>
 
     <!-- navbar section ends here -->

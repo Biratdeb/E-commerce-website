@@ -152,7 +152,16 @@
                 echo 'password matched';
                 session_start();
                 $_SESSION['username'] = $username;
-                header("location: admin_dashboard.php");
+                // this is for getting the email from the logged in user
+                $_SESSION['user_email'] =  $row['user_email'];
+                $_SESSION['user_phone_no'] =  $row['phone_no'];
+                $time = $row['datetime'];
+                $time_to_str = strtotime($time);
+                $joined_in = date('h:i:sa d-m-y', $time_to_str);
+                $_SESSION['user_joined_in'] =  $joined_in;
+                $_SESSION['user_id'] = $row['user_id'];
+                
+                header("location: users/us_dashboard.php");
              }
                 
                 

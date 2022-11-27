@@ -3,6 +3,8 @@ include "admin_session-block.php";
 
 include "../assets/_db_connect.php";
 
+include "../assets/_admin_header.php";
+
 
 $sql = "SELECT * FROM `users`";
 
@@ -27,15 +29,19 @@ $result = mysqli_query($conn, $sql);
 
 
 <style>
+  body{
+    background-color: #ddd;
+  }
         tr{
             transition: .8s;
             padding: 225px !important;
         }
         table{
-            /* text-align: center; */
+            text-align: center;
             margin: auto;
             justify-content: center;
             justify-items: center;
+            background-color: #fff;
         }
         td{
             padding: 25px !important;
@@ -48,7 +54,7 @@ $result = mysqli_query($conn, $sql);
             color: #EF4123;
         }
         .main-table{
-            /* text-align: center !important; */
+            text-align: center !important;
             justify-content: center;
             margin: auto !important;
         }
@@ -56,7 +62,7 @@ $result = mysqli_query($conn, $sql);
 
 
 <div class="text-center main-table">
-<table class="table text-light text-center" border="20px" aria-colspan="10">
+<table class="table text-center" >
   <thead>
     <tr>
       <th scope="col">Serial no</th>
@@ -83,36 +89,28 @@ $result = mysqli_query($conn, $sql);
       $username = $row['username'];
       $user_email = $row['user_email'];
       $user_phone_no = $row['phone_no'];
-      $joined_in = $row['datetime'];
+      $join_date = $row['datetime'];
+    // first the date from the database make it strtotime and store it on a variable
+    $jd= strtotime($join_date);
+
+    // then add the variable on the date function
+    $joined_date = date("h:i:s m-d-Y", $jd);
      
       echo '<tr class = "">
       <th scope="row">'. $serialno++ .'</th>
       <td>'. $username .'</td>
       <td>'. $user_email .'</td>
       <td>'. $user_phone_no .'</td>
-      <td> Joined on '. $joined_in .'</td>
+      <td> Joined on '. $joined_date .'</td>
       </tr>';
       
       
-      // echo "";
-      // echo $title. " " . $description . " " . $date;
-      
     }
-    // echo filetype(img/space.jpg);
-    // if(filetype("img/space.jpg") == "img/jpg"){
-    //   echo 'file is jpg';
-    // }
-    // else{
-    //   echo 'file is not jpg';
-    // }
-    
-
+  
 
     ?>
-    <!-- <td><img src="upload_img/'. $imagename .'" width="50px"></td> -->
-
-      <!-- -->
-    <!-- <td><a href="update_img.php?sno='. $row['id']. '"><button type="submit"  class="btn btn-primary">update</button></a> <a href="delete_img.php?sno='. $row['id']. '"><button type="submit" class="btn btn-danger">delete</button></td>  -->
+   
+   
   </tbody >
 </table>
 </div>

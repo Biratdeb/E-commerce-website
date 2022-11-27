@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Signup || E-commerce website</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             /* background-color: #EEEEEE; */
@@ -120,6 +121,14 @@
         .main-section {
             margin-left: 200px;
         }
+
+        .alert-dismissible .btn-close {
+            position: absolute;
+            top: -22px;
+            right: 0;
+            z-index: 2;
+            padding: 1.25rem 1rem;
+        }
     </style>
 </head>
 
@@ -139,10 +148,10 @@
         $cpass = $_POST['user_cpas'];
         if ($get_pass == $cpass) {
 
-            $sql = "SELECT * FROM `users` WHERE `username` = '$username'";
-            $result = mysqli_query($conn, $sql);
-            if($result){
-                echo '<div class=" container">
+            $sql1 = "SELECT * FROM `users` WHERE `username` = '$username'";
+            $result1 = mysqli_query($conn, $sql1);
+            if (mysqli_num_rows($result1) > 0) {
+                echo '<div class=" container" id="loggedBox">
                 <div class="loginbox">
                     
                     <div class="content row">
@@ -150,60 +159,93 @@
                         <div class="main-section col-12">
                             <img src="img/ecom-web-logo.png" class="text-center m-center" alt="" width="100px" style="border-radius: 10px;" srcset=""><br><br>
                             <p>Sorry the user already exist. Please <a href= "login.php">login</a>  with your user account</p><br>
-                            <!-- <p>Forget your password ?</p> -->
-                            <!-- <input type="tel" name="" id=""> -->
-                            <!-- <input type="datetime" name="" id=""> -->
-                            <!-- <input type="submit" value=""> -->
                         </div>
                     </div>
                 </div>
             </div>';
+                // echo 'exist the user';
                 exit;
                 // header("location:login.php");
 
             }
-            else{
 
-                $hash = password_hash($get_pass, PASSWORD_DEFAULT);
-                $user_password = $hash;
-                // echo $user_password;
-    
-    
-                // if the users phone no remaim blank then the user will be added without phone no
-                if ($user_phone_no == '') {
-                    $sql = "INSERT INTO `users` (`username`, `user_email`, `password`) VALUES ('$username', '$user_email', '$user_password');;";
-    
-                    $result = mysqli_query($conn, $sql);
-    
-                    if ($result) {
-                        echo "added the user successfully";
-                    } 
-                    else {
-                        echo "cannot added the user successfully";
-                    }
-    
+            $hash = password_hash($get_pass, PASSWORD_DEFAULT);
+            $user_password = $hash;
+            // echo $user_password;
+            echo 'hash runs';
+
+            // if the users phone no remaim blank then the user will be added without phone no
+            if ($user_phone_no == '') {
+                $sql = "INSERT INTO `users` (`username`, `user_email`, `password`) VALUES ('$username', '$user_email', '$user_password');";
+
+                $result_hash = mysqli_query($conn, $sql);
+
+                if ($result_hash) {
+                    echo '<div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="fa-sharp fa-solid fa-circle-check"></i><strong>Holy guacamole!</strong>  added the user successfully
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                  </div>';
+                } else {
+                    echo "cannot added the user successfully";
                 }
-    
-                // else if the user gives the phone no then the user will be added with the phone no
-                
-                else {
-                    $sql = "INSERT INTO `users` (`username`, `user_email`, `password`, `phone_no`) VALUES ('$username', '$user_email', '$user_password', '$user_phone_no');";
-    
-                    $result = mysqli_query($conn, $sql);
-    
-                    if ($result) {
-                        echo "added the user successfully";
-                    } else {
-                        echo "cannot added the user successfully";
-                    }
-                }
-
-
             }
+
+            // else if the user gives the phone no then the user will be added with the phone no
+
+            else {
+                $sql = "INSERT INTO `users` (`username`, `user_email`, `password`, `phone_no`) VALUES ('$username', '$user_email', '$user_password', '$user_phone_no');";
+
+                $result_phone = mysqli_query($conn, $sql);
+
+                if ($result_phone) {
+                    echo "added the user successfully";
+                } else {
+                    echo "cannot added the user successfully";
+                }
+            }
+
+            // else{
+
+            //     $hash = password_hash($get_pass, PASSWORD_DEFAULT);
+            //     $user_password = $hash;
+            //     // echo $user_password;
+            //     echo 'hash runs';
+
+            //     // if the users phone no remaim blank then the user will be added without phone no
+            //     if ($user_phone_no == '') {
+            //         $sql = "INSERT INTO `users` (`username`, `user_email`, `password`) VALUES ('$username', '$user_email', '$user_password');";
+
+            //         $result_hash = mysqli_query($conn, $sql);
+
+            //         if ($result_hash) {
+            //             echo "added the user successfully";
+            //         } 
+            //         else {
+            //             echo "cannot added the user successfully";
+            //         }
+
+            //     }
+
+            //     // else if the user gives the phone no then the user will be added with the phone no
+
+            //     else {
+            //         $sql = "INSERT INTO `users` (`username`, `user_email`, `password`, `phone_no`) VALUES ('$username', '$user_email', '$user_password', '$user_phone_no');";
+
+            //         $result_phone = mysqli_query($conn, $sql);
+
+            //         if ($result_phone) {
+            //             echo "added the user successfully";
+            //         } else {
+            //             echo "cannot added the user successfully";
+            //         }
+            //     }
+
+
+            // }
 
             // if()
 
-       
+
         } else {
             echo ' your password doesnot match !!';
         }
@@ -225,7 +267,9 @@
     ?>
 
 
-
+    <script>
+        // document.getElementById("loggedBox").style = "display:none;"
+    </script>
 
 
     <!-- user signup section starts here -->
@@ -255,6 +299,8 @@
     </form>
 
     <!-- user signup section ends here -->
+
+    scrip:
 </body>
 
 </html>
