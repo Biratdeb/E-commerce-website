@@ -60,7 +60,7 @@
             </style>
 
         </table>
-
+                <h1>this oooooooo</h1>
         <!-- border -->
         <div class="total">
             <div class="border text-end"></div>
@@ -71,17 +71,33 @@
                     </div>
                 </div>
                 <div class="col-6">$200</div>
+                <button> add</button>
             </div>
 
         </div>
 
     </div>
     <div id="newtotal"></div>
+    <div class="select">
+
+    </div>
 
     <script>
-        var x = 2;
-        var y = 2;
-       document.getElementById("newtotal").innerText= x+y
+    //     var x = 2;
+    //     var y = 2;
+    //    document.getElementById("newtotal").innerText= x+y
+
+
+    var noti =document.querySelector('h1');
+    var select = document.querySelector('.select');
+    var button = document.getElementsByTagName('button');
+    for(but of button){
+        but.addEventListener('click', (e)=>{
+            var add = Number(noti.getAttribute('data-count')||0);
+            noti.setAttribute('data-count', add+1);
+            noti.classList.add('zero');
+        })
+    }
     </script>
 </body>
 
