@@ -91,6 +91,7 @@ ul li a{
                
 
                 $product_img_upload_location = '../product_img/' . $product_img;
+                $product_img_upload_location_new = '../assets/product_img/' . $product_img;
 
                echo strlen($product_name);
 
@@ -104,6 +105,7 @@ ul li a{
 
                 if($result){
                     move_uploaded_file($product_img_tmpname, $product_img_upload_location);
+                    move_uploaded_file($product_img_tmpname, $product_img_upload_location_new);
                     echo 'posted successfully all the data';
                     echo'<div class="alert alert-success alert-dismissible fade show" role="alert">
                     <strong>Success!</strong> Successfully added all product information on the product section.
